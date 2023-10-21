@@ -1,0 +1,30 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: profilesight-postgres
+    environment:
+      POSTGRES_DB: profilesight
+      POSTGRES_USER: profilesight_user
+      POSTGRES_PASSWORD: profilesight_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    networks:
+      - profilesight-net
+#  profilesight:
+#    build: .
+#    container_name: profilesight
+#    depends_on:
+#      - postgres
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/profilesight
+#      SPRING_DATASOURCE_USERNAME: profilesight_user
+#      SPRING_DATASOURCE_PASSWORD: profilesight_password
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - profilesight-net
+networks:
+  profilesight-net:
