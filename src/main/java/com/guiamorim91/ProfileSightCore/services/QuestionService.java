@@ -1,6 +1,8 @@
 package com.guiamorim91.ProfileSightCore.services;
 
+import com.guiamorim91.ProfileSightCore.dtos.QuestionDTO;
 import com.guiamorim91.ProfileSightCore.entities.Question;
+import com.guiamorim91.ProfileSightCore.mappers.QuestionMapper;
 import com.guiamorim91.ProfileSightCore.repositories.QuestionRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,8 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
 
-    public List<Question> findAll() {
-        return questionRepository.findAll();
+    public List<QuestionDTO> findAll() {
+        List<Question> questions = questionRepository.findAll();
+        return QuestionMapper.INSTANCE.toDTOList(questions);
     }
 }

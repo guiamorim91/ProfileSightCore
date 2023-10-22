@@ -1,11 +1,13 @@
 package com.guiamorim91.ProfileSightCore.entities;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Schema(description = "Pergunta.")
 @Entity
 @Data
 public class Question {

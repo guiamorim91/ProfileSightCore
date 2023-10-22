@@ -1,8 +1,10 @@
 package com.guiamorim91.ProfileSightCore.controllers;
 
+import com.guiamorim91.ProfileSightCore.dtos.QuestionDTO;
 import com.guiamorim91.ProfileSightCore.entities.Question;
 import com.guiamorim91.ProfileSightCore.services.QuestionService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +22,8 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<Question>> findAll() {
+    @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<QuestionDTO>> findAll() {
         return ResponseEntity.ok(questionService.findAll());
     }
 }

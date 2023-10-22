@@ -18,7 +18,7 @@ public class TicketService {
 
     public Ticket create() {
         Ticket ticket = new Ticket();
-        ticket.setCreatedAt(new Date());
+//        ticket.setCreatedAt(new Date());
         return ticketRepository.save(ticket);
     }
 

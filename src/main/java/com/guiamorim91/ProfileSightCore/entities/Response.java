@@ -1,8 +1,11 @@
 package com.guiamorim91.ProfileSightCore.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Data;
 
+@Schema(description = "Resposta da pergunta.")
 @Entity
 @Data
 public class Response {
@@ -14,6 +17,7 @@ public class Response {
     private Ticket ticket;
 
     @ManyToOne
+    @JsonIgnore
     private Question question;
 
     @ManyToOne
